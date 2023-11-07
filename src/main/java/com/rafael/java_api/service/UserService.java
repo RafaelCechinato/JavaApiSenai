@@ -15,12 +15,12 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public void save(String name, Date birthday, short age) {
-        this.userRepository.save(new UserModel(name, birthday, age));
+    public UserModel save(UserModel userModel) {
+        return this.userRepository.save(userModel);
     }
 
-    public void save(String id, String name, Date birthday, short age) {
-        this.userRepository.save(new UserModel(id, name, birthday, age));
+    public void save(String id, String name, short age) {
+        this.userRepository.save(new UserModel(id, name, age));
     }
 
     public List<UserModel> findAll() {

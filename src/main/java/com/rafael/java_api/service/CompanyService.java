@@ -1,0 +1,29 @@
+package com.rafael.java_api.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.rafael.java_api.model.CompanyModel;
+import com.rafael.java_api.repository.CompanyRepository;
+
+@Service
+public class CompanyService {
+
+    @Autowired
+    private CompanyRepository companyRepository;
+
+    public void save(CompanyModel companyModel) {
+        this.companyRepository.save(companyModel);
+    }
+
+    public List<CompanyModel> findAll() {
+        return this.companyRepository.findAll();
+    }
+
+    public void delete(String id) {
+        this.companyRepository.deleteById(id);
+    }
+
+}

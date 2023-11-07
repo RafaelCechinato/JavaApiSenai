@@ -19,22 +19,21 @@ public class UserModel {
     private String name;
     @Getter
     @Setter
-    private Date birthday;
-    @Getter
-    @Setter
     private short age;
 
-    public UserModel(String id, String name, Date birthday, short age) {
+    public UserModel(String id, String name, short age) {
         this.id = id;
         this.name = name;
-        this.birthday = birthday;
         this.age = age;
     }
 
-    public UserModel(String name, Date birthday, short age) {
+    public UserModel(String name, short age) {
         this.name = name;
-        this.birthday = birthday;
         this.age = age;
+    }
+
+    public UserModel(String id) {
+        this.id = id;
     }
 
     public UserModel() {

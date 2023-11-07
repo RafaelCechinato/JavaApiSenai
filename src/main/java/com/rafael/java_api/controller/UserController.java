@@ -43,13 +43,12 @@ public class UserController {
 
     @PostMapping("")
     public void newUser(@RequestBody UserModel newUser) {
-        userService.save((String) newUser.getName(), (Date) newUser.getBirthday(), (short) newUser.getAge());
+        userService.save(newUser);
     }
 
     @PutMapping("/{id}")
     public void putUser(@RequestBody UserModel newUser, @PathVariable String id) {
-        userService.save((String) id, (String) newUser.getName(), (Date) newUser.getBirthday(),
-                (short) newUser.getAge());
+        userService.save((String) id, (String) newUser.getName(), (short) newUser.getAge());
     }
 
     @DeleteMapping("/{id}")
