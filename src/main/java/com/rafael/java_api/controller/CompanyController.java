@@ -42,6 +42,7 @@ public class CompanyController {
     @PostMapping("/array")
     public void newUserArray(@RequestBody CompanyUserDTO newCompanyUserDTO) {
         List<UserModel> idsUsers = new ArrayList<UserModel>();
+
         for (UserModel test : newCompanyUserDTO.getUserList()) {
             UserModel userResp = userService.save(new UserModel(test.getName(), test.getAge()));
             idsUsers.add(new UserModel(userResp.getId()));
@@ -56,6 +57,11 @@ public class CompanyController {
     @GetMapping("")
     public List<CompanyModel> findAllCompanyModels() {
         return companyService.findAll();
+    }
+
+    @GetMapping("/user/{userId}")
+    public List<CompanyModel> findByUserID(@PathVariable String userId) {
+        return companyService.findByUserID(userId);
     }
 
     @DeleteMapping("/{id}")

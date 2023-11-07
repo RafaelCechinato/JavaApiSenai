@@ -22,6 +22,10 @@ public class CompanyService {
         return this.companyRepository.findAll();
     }
 
+    public List<CompanyModel> findByUserID(String userId) {
+        return this.companyRepository.findByUserID(userId);
+    }
+
     public void delete(String id) {
         this.companyRepository.deleteById(id);
     }
