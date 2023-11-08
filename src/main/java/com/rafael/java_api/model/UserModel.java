@@ -1,25 +1,20 @@
 package com.rafael.java_api.model;
 
-import java.util.Date;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
+@Data
+@AllArgsConstructor
 @Document("user")
 public class UserModel {
     @Id
-    @Getter
-    @Setter
     private String id;
-    @Getter
-    @Setter
     private String name;
-    @Getter
-    @Setter
     private short age;
+    private String password;
 
     public UserModel(String id, String name, short age) {
         this.id = id;
