@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import org.springframework.beans.factory.annotation.Value;
-
 import com.rafael.java_api.model.UserModel;
 import com.rafael.java_api.service.UserService;
 
@@ -24,14 +22,16 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @Value("${MONGO_STRING_URI}")
-    String name;
-
     @GetMapping("")
     public List<UserModel> getAllUser() {
         List<UserModel> listRes = userService.findAll();
         return listRes;
     }
+
+    // @PostMapping("/file")
+    // public void testeFIle(MultipartFile file) throws IOException {
+    // userService.saveImage(file);
+    // }
 
     @GetMapping("/{name}")
     public List<UserModel> getUserByName(@PathVariable String name) {

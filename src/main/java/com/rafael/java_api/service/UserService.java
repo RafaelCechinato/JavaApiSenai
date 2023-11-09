@@ -14,6 +14,30 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    // @Value("${aws.accessKeyId}")
+    // private String accessKey;
+
+    // @Value("${aws.secretKey}")
+    // private String secretKey;
+
+    // @Value("${aws.bucket}")
+    // private String bucket;
+
+    // public void saveImage(MultipartFile file) throws IOException {
+    // String fileName = file.getOriginalFilename();
+    // InputStream filePath = file.getInputStream();
+
+    // var operacoesS3 = new OperacoesS3(accessKey, secretKey);
+    // var origemArquivo = "/home/teco/temp/s3/hino.jpg";
+    // var destinoArquivo = "senai/"+fileName;
+    // operacoesS3.enviarArquivo(bucket, destinoArquivo, filePath);
+    // operacoesS3.listarArquivos(bucket).forEach(System.out::println);
+
+    // operacoesS3.deletarArquivo(bucket, destinoArquivo);
+    // operacoesS3.listarArquivos(bucket).forEach(System.out::println);
+
+    // }
+
     public UserModel save(UserModel userModel) {
         return this.userRepository.save(userModel);
     }
