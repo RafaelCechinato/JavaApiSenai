@@ -15,6 +15,7 @@ public class UserModel {
     private String name;
     private short age;
     private String password;
+    private String email;
 
     public UserModel(String id, String name, short age) {
         this.id = id;
@@ -25,6 +26,11 @@ public class UserModel {
     public UserModel(String name, short age) {
         this.name = name;
         this.age = age;
+    }
+
+    public UserModel(String password, String email) {
+        this.password = password;
+        this.email = email;
     }
 
     public UserModel(String id) {
