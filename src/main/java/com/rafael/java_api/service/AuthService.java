@@ -2,7 +2,11 @@ package com.rafael.java_api.service;
 
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.auth0.jwt.JWT;
@@ -12,7 +16,10 @@ import com.rafael.java_api.exception.AuthException;
 import com.rafael.java_api.model.UserModel;
 
 @Service
-public class AuthService {
+public class AuthService implements UserDetailsService {
+
+    @Autowired
+    private UserService userService;
 
     @Value("${jwt.secret")
     private String secret;
@@ -50,6 +57,16 @@ public class AuthService {
             return anSubject;
         } catch (Exception e) {
             return "";
+        }
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        UserModel resp = this.userService.findByEmail(username);
+        if (resp.getEmail().equals(username)) {
+            return resp;
+        } else {
+            throw new UsernameNotFoundException("User not found");
         }
     }
 

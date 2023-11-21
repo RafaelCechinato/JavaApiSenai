@@ -1,7 +1,6 @@
 package com.rafael.java_api.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -11,8 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.rafael.java_api.model.UserModel;
 import com.rafael.java_api.service.AuthService;
 import com.rafael.java_api.service.UserService;
-
-import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("/auth")
